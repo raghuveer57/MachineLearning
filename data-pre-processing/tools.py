@@ -12,5 +12,18 @@ y = dataset.iloc[:, -1].values # last column
 print("Read the data successfully")
 
 # displaying the data
-print("X: ",X)
-print("y: ",y)
+print(X)
+print(y)
+
+
+# handling missing values
+print("Handling the missing values \n")
+from sklearn.impute import SimpleImputer
+
+# Create the imputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+imputer = imputer.fit(X[:, 1:3]) # fit only on the columns that are numbers
+X[:, 1:3] = imputer.transform(X[:, 1:3]) # transform the data
+
+print(X)
+
