@@ -40,6 +40,8 @@ print(X)
 
 
 #Encoding categorical variables
+
+
 #Encoding independent variable X
 ##################################################
 ##################################################
@@ -54,5 +56,21 @@ ct = ColumnTransformer(
 X = np.array(ct.fit_transform(X)) # force the ouput into a numpy array
 
 print(X)
+##################################################
+##################################################
+
+
+#Encoding dependant variable y
+##################################################
+##################################################
+from sklearn.preprocessing import LabelEncoder
+
+# Create the label encoder
+le = LabelEncoder()
+
+# Fit and transform the data
+y = le.fit_transform(y)
+
+print(y)
 ##################################################
 ##################################################
