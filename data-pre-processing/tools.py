@@ -39,8 +39,7 @@ print(X)
 
 
 
-#Encoding categorical variables
-
+#Encoding categorical variables.##################
 
 #Encoding independent variable X
 ##################################################
@@ -59,7 +58,7 @@ print(X)
 ##################################################
 ##################################################
 
-
+ 
 #Encoding dependant variable y
 ##################################################
 ##################################################
@@ -72,5 +71,30 @@ le = LabelEncoder()
 y = le.fit_transform(y)
 
 print(y)
+##################################################
+##################################################
+
+
+
+
+
+
+# Splitting the dataset into the Training set and Test set
+##################################################
+##################################################
+from sklearn.model_selection import train_test_split
+
+# Splitting the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+# print the new data sets
+print("X_train:")
+print(X_train)
+print("X_test:")
+print(X_test)
+print("y_train:")
+print(y_train)
+print("y_test:")
+print(y_test)
 ##################################################
 ##################################################
