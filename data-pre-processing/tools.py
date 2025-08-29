@@ -58,7 +58,7 @@ print(X)
 ##################################################
 ##################################################
 
- 
+
 #Encoding dependant variable y
 ##################################################
 ##################################################
@@ -96,5 +96,33 @@ print("y_train:")
 print(y_train)
 print("y_test:")
 print(y_test)
+##################################################
+##################################################
+
+
+
+
+
+
+# Feature Scaling ( standardization)
+##################################################
+##################################################
+from sklearn.preprocessing import StandardScaler
+
+# Create the scaler
+scaler = StandardScaler()
+
+# Fit and transform the training data
+X_train[:, 3:] = scaler.fit_transform(X_train[:, 3:])
+
+# Transform the test data
+X_test[:, 3:] = scaler.transform(X_test[:, 3:])
+
+# print the new data sets
+print("X_train:")
+print(X_train)
+print("X_test:")
+print(X_test)
+
 ##################################################
 ##################################################
