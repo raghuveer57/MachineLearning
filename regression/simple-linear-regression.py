@@ -10,9 +10,9 @@ import pandas as pd
 ##################################################
 ##################################################
 # read the data set using pandas into a data frame
-dataset = pd.read_csv("data/Salary_Data.csv")
-X = dataset.iloc[:, :-1].values # all columns except the last
-y = dataset.iloc[:, -1].values # last column
+dataset     =   pd.         read_csv("data/Salary_Data.csv")
+X           =   dataset.    iloc[:, :-1].   values # all columns except the last
+y           =   dataset.    iloc[:, -1].    values # last column
 print("Read the data successfully")
 
 # displaying the data (optional)
@@ -54,9 +54,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ##################################################
 
 from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
-regressor.fit(X_train, y_train) # fit the model to the training data
-print("Model trained successfully")
+regressor       =       LinearRegression()
+regressor.  fit(X_train, y_train)       # fit the model to the training data
+print       ("Model trained successfully")
 
 ##################################################
 ##################################################
@@ -69,7 +69,7 @@ print("Model trained successfully")
 ##################################################
 ##################################################
 
-y_pred = regressor.predict(X_test)
+y_pred      =       regressor.predict(X_test)
 
 # print(" values:")
 # print(X_test)
@@ -87,12 +87,12 @@ y_pred = regressor.predict(X_test)
 ##################################################
 ##################################################
 
-plt.scatter(X_train, y_train, color='red') # actual values
-plt.plot(X_train, regressor.predict(X_train), color='blue') # predicted values
-plt.title('Salary vs Experience (Training set)')
-plt.xlabel('Years of Experience')
-plt.ylabel('Salary')
-plt.show()
+plt.    scatter         (X_train, y_train, color='red') # actual values
+plt.    plot            (X_train, regressor.    predict(X_train), color='blue') # predicted values
+plt.    title           ('Salary vs Experience (Training set)')
+plt.    xlabel          ('Years of Experience')
+plt.    ylabel          ('Salary')
+plt.    show            ()
 
 ##################################################
 ##################################################
@@ -104,12 +104,11 @@ plt.show()
 ##################################################
 ##################################################
 
-plt.scatter(X_test, y_test, color='red') # actual values
-plt.plot(X_test, y_pred, color='blue') # predicted values
-plt.title('Salary vs Experience (Test set)')
-plt.xlabel('Years of Experience')
-plt.ylabel('Salary')
-plt.show()
-
+plt.    scatter(X_test, y_test, color='red') # actual values
+plt.    plot(X_test, y_pred, color='blue') # predicted values
+plt.    title('Salary vs Experience (Test set)')
+plt.    xlabel('Years of Experience')
+plt.    ylabel('Salary')
+plt.    show()
 ##################################################
 ##################################################

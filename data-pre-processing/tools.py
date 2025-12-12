@@ -8,10 +8,10 @@ print("Imported the libraries successfully")
 ##################################################
 ##################################################
 # read the data set using pandas into a data frame
-dataset = pd.read_csv("data/Data1.csv")
-X = dataset.iloc[:, :-1].values # all columns except the last
-y = dataset.iloc[:, -1].values # last column
-print("Read the data successfully")
+dataset = pd.       read_csv("data/Data1.csv")
+X       = dataset.  iloc[:, :-1]    .values         # all columns except the last
+y       = dataset.  iloc[:, -1]     .values         # last column
+print   ("Read the data successfully")
 
 # displaying the data
 print(X)
@@ -28,9 +28,9 @@ print("Handling the missing values \n")
 from sklearn.impute import SimpleImputer
 
 # Create the imputer
-imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-imputer = imputer.fit(X[:, 1:3]) # fit only on the columns that are numbers
-X[:, 1:3] = imputer.transform(X[:, 1:3]) # transform the data
+imputer     =       SimpleImputer(missing_values=np.nan, strategy='mean')
+imputer     =       imputer     .fit(X[:, 1:3])         # fit only on the columns that are numbers
+X[:, 1:3]   =       imputer     .transform(X[:, 1:3])   # transform the data
 
 print(X)
 ##################################################
@@ -48,11 +48,12 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
 # Create the column transformer
-ct = ColumnTransformer(
-    transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
-
+ct      =       ColumnTransformer(
+                        transformers=[('encoder', OneHotEncoder(), [0])],
+                        remainder='passthrough'
+                      )
 # Fit and transform the data
-X = np.array(ct.fit_transform(X)) # force the ouput into a numpy array
+X       =       np.array(ct.fit_transform(X)) # force the ouput into a numpy array
 
 print(X)
 ##################################################
@@ -64,11 +65,9 @@ print(X)
 ##################################################
 from sklearn.preprocessing import LabelEncoder
 
-# Create the label encoder
-le = LabelEncoder()
 
-# Fit and transform the data
-y = le.fit_transform(y)
+le  =   LabelEncoder()              # Create the label encoder
+y   =   le.fit_transform(y)         # Fit and transform the data
 
 print(y)
 ##################################################
@@ -88,14 +87,14 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # print the new data sets
-print("X_train:")
-print(X_train)
-print("X_test:")
-print(X_test)
-print("y_train:")
-print(y_train)
-print("y_test:")
-print(y_test)
+print   ("X_train:")
+print   (X_train)
+print   ("X_test:")
+print   (X_test)
+print   ("y_train:")
+print   (y_train)
+print   ("y_test:")
+print   (y_test)
 ##################################################
 ##################################################
 
@@ -109,20 +108,18 @@ print(y_test)
 ##################################################
 from sklearn.preprocessing import StandardScaler
 
-# Create the scaler
-scaler = StandardScaler()
 
-# Fit and transform the training data
-X_train[:, 3:] = scaler.fit_transform(X_train[:, 3:])
+scaler              =   StandardScaler()                            # Create the scaler
+X_train[:, 3:]      =   scaler. fit_transform(X_train[:, 3:])       # Fit and transform the training data
 
-# Transform the test data
-X_test[:, 3:] = scaler.transform(X_test[:, 3:])
+
+X_test[:, 3:]       =   scaler. transform(X_test[:, 3:])            # Transform the test data
 
 # print the new data sets
-print("X_train:")
-print(X_train)
-print("X_test:")
-print(X_test)
+print   ("X_train:")
+print   (X_train)
+print   ("X_test:")
+print   (X_test)
 
 ##################################################
 ##################################################
